@@ -2,7 +2,7 @@
 function Hero() {
     return (
         <section className="bg-gradient-to-br from-white via-blue-100 to-blue-200 text-center py-24 px-6">
-        <h1 className="text-5xl md:text-6xl font-bold text-blue-800 mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
           Simplify Your Social Media
         </h1>
         <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-8">
