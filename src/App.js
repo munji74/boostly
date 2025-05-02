@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import PricingPage from './pages/PricingPage';
 import ServicesPage from './pages/ServicesPage';
 
+
 function Home() {
   return (
     <>
