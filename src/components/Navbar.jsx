@@ -9,7 +9,6 @@ function Navbar() {
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -20,18 +19,22 @@ function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close menus on route change
   useEffect(() => {
     setServicesOpen(false);
     setMenuOpen(false);
   }, [location]);
 
-  // Shadow on scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
+  
 
   return (
     <nav
@@ -40,12 +43,16 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo Centered */}
+        {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 mx-auto">
-          <img src="/logo.png" alt="Boostly Logo" className="h-10 w-auto scale-[1.65] md:scale-[2.7] transition-transform duration-300" />
+          <img
+            src="/logo.png"
+            alt="Boostly Logo"
+            className="h-10 w-auto scale-[1.65] md:scale-[2.7] transition-transform duration-300"
+          />
         </Link>
 
-        {/* Hamburger Toggle */}
+        {/* Hamburger Menu */}
         <button
           className="text-2xl text-blue-700 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -56,39 +63,24 @@ function Navbar() {
 
       {/* Desktop Links */}
       <div className="hidden md:flex justify-center space-x-8 py-2 font-semibold text-blue-800 text-sm uppercase tracking-wide">
-        {["features", "pricing", "about", "login", "signup"].map((item, idx) =>
-          item === "signup" ? (
-            <Link
-              key={idx}
-              to={`/${item}`}
-              className="hover:text-blue-700 underline font-bold"
-            >
-              {item.toUpperCase()}
-            </Link>
-          ) : item === "about" ? (
-            <Link
-              key={idx}
-              to="/about"
-              className="relative group"
-            >
-              <span className="hover:text-blue-600 transition">
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-              </span>
-            </Link>
-          ) : (
-            <Link
-              key={idx}
-              to={`/${item}`}
-              className="relative group"
-            >
-              <span className="hover:text-blue-600 transition">
-                {item.toUpperCase()}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-              </span>
-            </Link>
-          )
-        )}
+        {[
+          { path: "/", label: "HOME" },
+          { path: "/features", label: "FEATURES" },
+          { path: "/pricing", label: "PRICING" },
+          { path: "/about", label: "ABOUT US" },
+        ].map(({ path, label }) => (
+          <Link
+            key={path}
+            to={path}
+            className={`relative ${
+              isActive(path)
+                ? "text-blue-700 underline font-bold"
+                : "hover:text-blue-600"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
 
         {/* Services Dropdown */}
         <div className="relative group" ref={dropdownRef}>
@@ -112,9 +104,9 @@ function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden px-4 pb-4 space-y-3 font-medium text-blue-800">
-          <Link to="/features" className="block hover:text-blue-600">Features</Link>
-          <Link to="/pricing" className="block hover:text-blue-600">Pricing</Link>
-          <Link to="/about" className="block hover:text-blue-600">About Us</Link>
+          <Link to="/features" className={`block ${isActive("/features") ? "underline font-bold" : "hover:text-blue-600"}`}>Features</Link>
+          <Link to="/pricing" className={`block ${isActive("/pricing") ? "underline font-bold" : "hover:text-blue-600"}`}>Pricing</Link>
+          <Link to="/about" className={`block ${isActive("/about") ? "underline font-bold" : "hover:text-blue-600"}`}>About Us</Link>
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
@@ -130,8 +122,6 @@ function Navbar() {
               </div>
             )}
           </div>
-          <Link to="/login" className="block hover:text-blue-600">Login</Link>
-          <Link to="/signup" className="block hover:text-blue-700 font-semibold underline">Signup</Link>
         </div>
       )}
     </nav>

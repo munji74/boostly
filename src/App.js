@@ -1,37 +1,29 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
 import WhatsappChat from './components/WhatsappChat';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 import AboutPage from './pages/AboutPage';
 import PricingPage from './pages/PricingPage';
 import ServicesPage from './pages/ServicesPage';
-
-
-function Home() {
-  return (
-    <>
-      <Hero />
-      <Features />
-      <WhatsappChat />
-    </>
-  );
-}
+import PlanDetail from "./pages/PlanDetail";
+import HomePage from './pages/HomePage';
+import Features from './components/Features'; // For /features route
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/pricing/:slug" element={<PlanDetail />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/features" element={<Features />} />
+        {/* Commenting out login/signup until needed */}
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> */}
       </Routes>
+      <WhatsappChat />
     </Router>
   );
 }
