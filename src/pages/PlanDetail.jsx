@@ -46,11 +46,6 @@ const planData = {
   },
 };
 
-const addOns = [
-  { name: "Product Photography", price: "$50–100/session" },
-  { name: "Website Design", price: "$250 one-time (+ $10/month maintenance)" },
-  { name: "Email Marketing + Sales Coaching", price: "$75/month" },
-];
 
 function PlanDetail() {
   const { slug } = useParams();
@@ -78,17 +73,6 @@ function PlanDetail() {
           </ul>
         </div>
 
-        <div className="text-left bg-white shadow rounded-xl p-6 md:p-10 mb-16">
-          <h3 className="text-xl font-semibold text-blue-700 mb-4">Optional Add-Ons</h3>
-          <ul className="divide-y text-sm md:text-base text-gray-700">
-            {addOns.map((addon, idx) => (
-              <li key={idx} className="flex justify-between py-2">
-                <span>{addon.name}</span>
-                <span className="font-medium">{addon.price}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Contact Form */}
         <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-2xl mx-auto text-left">
