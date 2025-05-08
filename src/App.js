@@ -8,6 +8,10 @@ import PlanDetail from "./pages/PlanDetail";
 import HomePage from './pages/HomePage';
 import Features from './components/Features'; // For /features route
 import Footer from "./components/Footer";
+import AddOnsPage from './pages/AddOnsPage';
+
+
+
 
 function App() {
   return (
@@ -20,6 +24,7 @@ function App() {
         <Route path="/pricing/:slug" element={<PlanDetail />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/features" element={<Features />} />
+        <Route path="/pricing/addOns" element={<AddOnsPage />} />
         {/* Commenting out login/signup until needed */}
         {/* <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> */}

@@ -48,7 +48,7 @@ function Navbar() {
           <img
             src="/logo.png"
             alt="Boostly Logo"
-            className="h-10 w-auto scale-[1.65] md:scale-[2.7] transition-transform duration-300"
+            className="h-12 md:h-13 w-auto scale-[2] md:scale-[2.8] transition-transform duration-300"
           />
         </Link>
 

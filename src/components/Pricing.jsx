@@ -50,18 +50,9 @@ const plans = [
 ];
 
 const addOns = [
-  {
-    name: "Product Photography",
-    price: "$50–100/session"
-  },
-  {
-    name: "Website Design",
-    price: "$250 one-time (+ $10/month maintenance)"
-  },
-  {
-    name: "Email Marketing + Sales Coaching",
-    price: "$75/month"
-  },
+  { name: "Product Photography", price: "$50–100/session" },
+  { name: "Website Design", price: "$250 one-time (+ $10/month maintenance)" },
+  { name: "Email Marketing + Sales Coaching", price: "$75/month" },
 ];
 
 function Pricing() {
@@ -76,52 +67,55 @@ function Pricing() {
 
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {plans.map((plan, idx) => (
-            <Link to={`/pricing/${plan.slug}`} key={idx}>
-              <div
-                className={`rounded-2xl p-6 h-full flex flex-col justify-between transition transform hover:-translate-y-1 duration-300 shadow-lg ${
-                  plan.recommended
-                    ? "bg-blue-700 text-white border-4 border-blue-800 scale-105"
-                    : "bg-white text-gray-800 border"
-                }`}
-              >
-                <div>
-                  <h3 className="text-xl font-extrabold uppercase mb-1">{plan.name}</h3>
-                  <p className={`text-sm italic mb-4 ${plan.recommended ? 'text-blue-100' : 'text-gray-600'}`}>
-                    {plan.subtitle}
-                  </p>
-                  <ul className={`space-y-2 text-left text-sm font-medium ${plan.recommended ? 'text-blue-100' : 'text-gray-800'}`}>
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span>✓</span> {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-6 space-y-3">
-                  <button
-                    className={`w-full py-2 rounded-full font-semibold text-sm ${
-                      plan.recommended
-                        ? "bg-white text-blue-800 hover:bg-blue-100"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    🚀 Get Started
-                  </button>
-                  <a
-                    href="https://wa.me/256790695985?text=Hello%20Boostly%2C%20I%27d%20like%20to%20inquire%20about%20your%20plans"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full inline-block text-center py-2 rounded-full border ${
-                      plan.recommended
-                        ? "border-white text-white hover:bg-white hover:text-blue-800"
-                        : "border-blue-600 text-blue-700 hover:bg-blue-50"
-                    } transition duration-200 font-medium text-sm`}
-                  >
-                    💬 Get to Us on WhatsApp
-                  </a>
-                </div>
+            <div
+              key={idx}
+              className={`rounded-2xl p-6 h-full flex flex-col justify-between transition transform hover:-translate-y-1 duration-300 shadow-lg ${
+                plan.recommended
+                  ? "bg-blue-700 text-white border-4 border-blue-800 scale-105"
+                  : "bg-white text-gray-800 border"
+              }`}
+            >
+              <div>
+                <h3 className="text-xl font-extrabold uppercase mb-1">{plan.name}</h3>
+                <p className={`text-sm italic mb-4 ${plan.recommended ? 'text-blue-100' : 'text-gray-600'}`}>
+                  {plan.subtitle}
+                </p>
+                <ul className={`space-y-2 text-left text-sm font-medium ${plan.recommended ? 'text-blue-100' : 'text-gray-800'}`}>
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span>✓</span> {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </Link>
+
+              <div className="mt-6 space-y-3">
+                <Link
+                  to={`/pricing/${plan.slug}`}
+                  className={`w-full inline-block text-center py-2 rounded-full font-semibold text-sm ${
+                    plan.recommended
+                      ? "bg-white text-blue-800 hover:bg-blue-100"
+                      : "bg-blue-600 text-white hover:bg-blue-700"
+                  }`}
+                >
+                  🚀 Get Started
+                </Link>
+                <a
+                  href={`https://wa.me/256790695985?text=${encodeURIComponent(
+                    `Hello Boostly, I'm interested in the ${plan.name} plan`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full inline-block text-center py-2 rounded-full border ${
+                    plan.recommended
+                      ? "border-white text-white hover:bg-white hover:text-blue-800"
+                      : "border-blue-600 text-blue-700 hover:bg-blue-50"
+                  } transition duration-200 font-medium text-sm`}
+                >
+                  💬 Get to Us on WhatsApp
+                </a>
+              </div>
+            </div>
           ))}
 
           {/* Add-Ons Card */}
@@ -141,11 +135,16 @@ function Pricing() {
               </ul>
             </div>
             <div className="mt-6 space-y-3">
-              <button className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-semibold text-sm">
+              <Link
+                to="/pricing/addOns"
+                className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-semibold text-sm inline-block text-center"
+              >
                 🚀 Get Started
-              </button>
+              </Link>
               <a
-                href="https://wa.me/256790695985?text=Hello%20Boostly%2C%20I%27d%20like%20to%20ask%20about%20the%20optional%20add-ons"
+                href={`https://wa.me/256790695985?text=${encodeURIComponent(
+                  "Hello Boostly, I’d like to inquire about your add-ons"
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-block text-center py-2 rounded-full border border-blue-600 text-blue-700 hover:bg-blue-50 transition duration-200 font-medium text-sm"

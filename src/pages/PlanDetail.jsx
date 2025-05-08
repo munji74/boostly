@@ -46,11 +46,15 @@ const planData = {
   },
 };
 
+const addOns = [
+  { name: "Product Photography", price: "$50–100/session" },
+  { name: "Website Design", price: "$250 one-time (+ $10/month maintenance)" },
+  { name: "Email Marketing + Sales Coaching", price: "$75/month" },
+];
 
 function PlanDetail() {
   const { slug } = useParams();
   const plan = planData[slug];
-
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   if (!plan) {
@@ -64,6 +68,7 @@ function PlanDetail() {
         <p className="italic text-gray-600 mb-2">{plan.subtitle}</p>
         <p className="text-2xl font-bold text-blue-700 mb-6">{plan.price}</p>
 
+        {/* What's Included */}
         <div className="text-left bg-white shadow-md rounded-xl p-6 md:p-10 mb-10">
           <h3 className="text-xl font-semibold mb-4 text-blue-800">What's Included:</h3>
           <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm md:text-base">
@@ -73,9 +78,21 @@ function PlanDetail() {
           </ul>
         </div>
 
+        {/* Optional Add-Ons */}
+        <div className="text-left bg-white shadow-md rounded-xl p-6 md:p-10 mb-10">
+          <h3 className="text-xl font-semibold mb-4 text-blue-800">Optional Add-Ons</h3>
+          <ul className="space-y-3 text-sm text-gray-800">
+            {addOns.map((addon, idx) => (
+              <li key={idx} className="flex justify-between border-b pb-2">
+                <span>{addon.name}</span>
+                <span className="text-blue-700 font-medium">{addon.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-2xl mx-auto text-left">
+        <div id="contact" className="bg-white p-6 md:p-10 rounded-xl shadow-lg max-w-2xl mx-auto text-left scroll-mt-32">
           <h3 className="text-xl font-bold text-blue-800 mb-4">Contact Sales</h3>
           <form className="space-y-4">
             <input
