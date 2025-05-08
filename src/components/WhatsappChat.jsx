@@ -2,7 +2,7 @@
 function WhatsappChat() {
     return (
       <a
-        href="https://wa.me/256712345678" // ← Replace with your business number (in international format, no + or 0)
+        href="https://wa.me/256790695985" // ← Replace with your business number (in international format, no + or 0)
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 z-50 transform hover:scale-105 transition"

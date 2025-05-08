@@ -7,6 +7,7 @@ import ServicesPage from './pages/ServicesPage';
 import PlanDetail from "./pages/PlanDetail";
 import HomePage from './pages/HomePage';
 import Features from './components/Features'; // For /features route
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,8 +25,13 @@ function App() {
         <Route path="/signup" element={<Signup />} /> */}
       </Routes>
       <WhatsappChat />
+      <Footer />
     </Router>
+    
   );
+  
 }
+
+
 
 export default App;
