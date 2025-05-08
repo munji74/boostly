@@ -2,27 +2,22 @@
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-blue-100 to-white py-20 px-4 text-center">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-2xl md:text-4xl font-bold text-blue-800 leading-snug mb-3">
+    <section className="bg-[#112B6B] text-white py-24 px-6 text-center">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-bold leading-snug mb-4 tracking-tight">
           Simplify Your Social Media
         </h1>
-
-        <p className="text-lg md:text-xl text-gray-700 mb-8">
+        <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
           Boost your online presence with smart scheduling, stunning designs, and effortless management — all in one platform.
         </p>
-
-        {/* CTA Button */}
-        <div className="flex justify-center">
-          <a
-            href="https://wa.me/256XXXXXXXXX" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-2 focus:ring-blue-300 transition-all duration-200 px-6 py-3 rounded-full font-semibold text-lg shadow-sm"
-          >
-            💬 Talk to Us
-          </a>
-        </div>
+        <a
+          href="https://wa.me/256790695985"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#112B6B] font-semibold rounded-full shadow-md hover:bg-blue-100 transition"
+        >
+          💬 Talk to Us on WhatsApp
+        </a>
       </div>
     </section>
   );

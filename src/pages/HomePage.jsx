@@ -1,4 +1,3 @@
-// src/pages/HomePage.jsx
 import Hero from "../components/Hero";
 import WhatsappChat from "../components/WhatsappChat";
 import { Link } from "react-router-dom";
@@ -8,53 +7,53 @@ function HomePage() {
     <>
       <Hero />
 
-      {/* CTA to Features */}
-      <section className="text-center bg-gradient-to-r from-blue-50 via-white to-blue-50 py-16 px-6">
+      {/* Features CTA Section */}
+      <section className="text-center bg-gradient-to-r from-[#D6EBFF] to-[#EFF8FF] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-blue-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#112B6B] mb-4 tracking-tight">
             Explore Boostly’s Core Features
-          </h3>
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            From smart scheduling to AI-powered content and analytics — Boostly is built to help your brand grow faster and smarter.
+          </h2>
+          <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+            From post scheduling and content creation to analytics and automation — Boostly gives you the tools to grow with ease.
           </p>
           <Link
             to="/features"
-            className="inline-block bg-blue-700 text-white px-8 py-3 rounded-full text-base font-semibold hover:bg-blue-800 transition duration-300 shadow-md"
+            className="inline-block bg-[#112B6B] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#1A3E8A] transition shadow-md"
           >
             View Features
           </Link>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="bg-[#eef3fd] py-24 px-6 text-gray-800 relative overflow-hidden">
+      {/* Boostly Journey */}
+      <section className="bg-[#F1F5F9] py-24 px-6 text-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#112B6B] text-center mb-12">
             The Boostly Journey
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 text-lg leading-loose">
+          <div className="grid md:grid-cols-2 gap-12 text-lg leading-loose tracking-wide">
             <div className="space-y-6">
               <p>
-                <strong className="text-blue-700">Founded in 2020</strong>, Boostly began with a mission to empower small businesses with the tools and guidance they need to succeed online.
+                <span className="font-bold text-[#2563EB]">Founded in 2020</span>, Boostly began with a vision to empower small businesses to thrive online — simply and affordably.
               </p>
               <p>
-                We noticed a problem: business owners were doing everything — except growing on social media. So we built a solution that feels like an in-house marketing team.
+                Our team saw the struggles small business owners faced: too many responsibilities, not enough time for digital marketing. Boostly was built to fix that.
               </p>
-              <p className="italic text-blue-700 font-medium">
-                Our mission: make expert-level social media support affordable and accessible to all.
+              <p className="italic text-[#112B6B] font-medium">
+                Our mission: deliver agency-level social media support at local-friendly prices.
               </p>
             </div>
 
             <div className="space-y-6">
               <p>
-                We focus on <strong>high-quality content</strong>, <strong>real engagement</strong>, and <strong>long-term brand loyalty</strong>.
+                We believe in <strong>clarity, creativity, and consistency</strong>. Whether you're a shop, brand, or startup — your online presence should be powerful and easy to manage.
               </p>
               <p>
-                Our team delivers tailored strategies, performance insights, and human support to build online communities — not just likes.
+                Each client receives personalized strategies, on-brand visuals, and measurable growth tools.
               </p>
               <p>
-                Whether you're just launching or scaling fast, <span className="text-blue-800 font-semibold">Boostly is your growth partner — one post at a time.</span>
+                Whether you're starting or scaling, <span className="font-semibold text-[#112B6B]">Boostly helps you grow — one post at a time.</span>
               </p>
             </div>
           </div>

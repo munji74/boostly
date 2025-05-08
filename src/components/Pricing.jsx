@@ -86,8 +86,10 @@ function Pricing() {
               >
                 <div>
                   <h3 className="text-xl font-extrabold uppercase mb-1">{plan.name}</h3>
-                  <p className="text-sm italic mb-4">{plan.subtitle}</p>
-                  <ul className="space-y-2 text-left text-sm font-medium">
+                  <p className={`text-sm italic mb-4 ${plan.recommended ? 'text-blue-100' : 'text-gray-600'}`}>
+                    {plan.subtitle}
+                  </p>
+                  <ul className={`space-y-2 text-left text-sm font-medium ${plan.recommended ? 'text-blue-100' : 'text-gray-800'}`}>
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span>✓</span> {feature}
@@ -95,33 +97,62 @@ function Pricing() {
                     ))}
                   </ul>
                 </div>
-                <button
-                  className={`mt-6 w-full py-2 rounded-full font-semibold text-sm ${
-                    plan.recommended
-                      ? "bg-white text-blue-800 hover:bg-blue-100"
-                      : "bg-blue-600 text-white hover:bg-blue-700"
-                  }`}
-                >
-                  🚀 Get Started
-                </button>
+                <div className="mt-6 space-y-3">
+                  <button
+                    className={`w-full py-2 rounded-full font-semibold text-sm ${
+                      plan.recommended
+                        ? "bg-white text-blue-800 hover:bg-blue-100"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    🚀 Get Started
+                  </button>
+                  <a
+                    href="https://wa.me/256790695985?text=Hello%20Boostly%2C%20I%27d%20like%20to%20inquire%20about%20your%20plans"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full inline-block text-center py-2 rounded-full border ${
+                      plan.recommended
+                        ? "border-white text-white hover:bg-white hover:text-blue-800"
+                        : "border-blue-600 text-blue-700 hover:bg-blue-50"
+                    } transition duration-200 font-medium text-sm`}
+                  >
+                    💬 Get to Us on WhatsApp
+                  </a>
+                </div>
               </div>
             </Link>
           ))}
 
           {/* Add-Ons Card */}
-          <div className="bg-white border rounded-2xl p-6 shadow-lg text-left">
-            <h3 className="text-xl font-extrabold text-blue-800 mb-2 text-center uppercase">Optional Add-Ons</h3>
-            <p className="text-sm italic text-center text-gray-600 mb-4">
-              Enhance any package with these extras:
-            </p>
-            <ul className="space-y-3 text-sm text-gray-800">
-              {addOns.map((item, idx) => (
-                <li key={idx} className="flex justify-between border-b pb-2">
-                  <span>{item.name}</span>
-                  <span className="text-blue-700 font-medium">{item.price}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="bg-white border rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl font-extrabold text-blue-800 mb-2 text-center uppercase">Optional Add-Ons</h3>
+              <p className="text-sm italic text-center text-gray-600 mb-4">
+                Enhance any package with these extras:
+              </p>
+              <ul className="space-y-3 text-sm text-gray-800">
+                {addOns.map((item, idx) => (
+                  <li key={idx} className="flex justify-between border-b pb-2">
+                    <span>{item.name}</span>
+                    <span className="text-blue-700 font-medium">{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-6 space-y-3">
+              <button className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-semibold text-sm">
+                🚀 Get Started
+              </button>
+              <a
+                href="https://wa.me/256790695985?text=Hello%20Boostly%2C%20I%27d%20like%20to%20ask%20about%20the%20optional%20add-ons"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-block text-center py-2 rounded-full border border-blue-600 text-blue-700 hover:bg-blue-50 transition duration-200 font-medium text-sm"
+              >
+                💬 Ask About Add-Ons
+              </a>
+            </div>
           </div>
         </div>
       </div>
